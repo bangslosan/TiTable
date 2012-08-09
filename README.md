@@ -13,7 +13,7 @@ The concept is you create the table, passing the JSON feed and then specifying a
 
 So:-
 
-	table.create(data, function(controls) {
+	var mytable = table.create(data, function(controls) {
 
 		var title = Ti.UI.createLabel({
 			field : "title",

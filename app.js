@@ -11,15 +11,20 @@ var mytable = table.create(data, function(controls) {
 	var title = Ti.UI.createLabel({
 		field : "title",
 		left : 10,
-		top : 5
+		top: 5
 	});
 
 	// second label
 	var subTitle = Ti.UI.createLabel({
 		field : "subtitle",
 		left : 10,
-		top : 25
+		top :25
+		
+	});
 
+	// sample event handler
+	controls.row.addEventListener('click', function(e) {
+		alert("You clicked the row! " + e.source);
 	});
 
 	// push the labels intro the control array
@@ -28,17 +33,13 @@ var mytable = table.create(data, function(controls) {
 
 });
 
-// create a window
-var win = Ti.UI.createWindow();
+	// create a window
+	var win = Ti.UI.createWindow();
 
-// add the table
-win.add(mytable)
+	// add the table
+	win.add(mytable)
 
-// sample event handler
-mytable.addEventListener('click', function(e) {
-	alert("You clicked " + e.source);
-});
+	// open it
+	win.open();
 
-// open it
-win.open();
 

@@ -1,3 +1,5 @@
+// creates a new table, pass the JSON data template function
+// that generates the controls.
 
 exports.create = function(data, template) {
 
@@ -36,11 +38,10 @@ exports.create = function(data, template) {
 			row.add(controls[c]);
 
 		}
-
+	
 		rows.push(row);
-
 	}
-
+	
 	// populate the table
 	table.setData(rows);
 

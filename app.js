@@ -2,7 +2,7 @@
 var table = require("TiTable/titable");
 
 // demo JSON data
-var data = '{"data":[{"title":"Label 1","subtitle":"Sublabel 1"},{"title":"Label 2","subtitle":"SubLabel 2"}]}';
+var data = '[{"title":"hello","subtitle":"there"},{"title":"hello2","subtitle":"there2"}]';
 
 // create a new table, pass through the feed
 var mytable = table.create(data, function(controls) {

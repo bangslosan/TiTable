@@ -13,7 +13,7 @@ exports.create = function(data, template) {
 	var rows = [];
 
 	// let's loop through the JSON
-	for (var i = 0; i < items.data.length; i++) {
+	for (var i = 0; i < items.length; i++) {
 
 		// create a new row
 		var row = Ti.UI.createTableViewRow({
@@ -33,7 +33,7 @@ exports.create = function(data, template) {
 		// let's go through the controls and match 'field' to the JSON value
 		for (var c = 0; c < controls.length; c++) {
 
-			controls[c].text = items.data[i][controls[c].field];
+			controls[c].text = items[i][controls[c].field];
 
 			row.add(controls[c]);
 

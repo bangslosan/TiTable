@@ -1,3 +1,5 @@
+
+
 // get started
 var table = require("TiTable/titable");
 
@@ -30,6 +32,9 @@ var mytable = table.create(data, function(controls) {
 
 // create a window
 var win = Ti.UI.createWindow();
+
+// for Android mainly
+win.backgroundColor = '#fff';
 
 // add the table
 win.add(mytable)

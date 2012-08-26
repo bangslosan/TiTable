@@ -13,6 +13,10 @@ Add the module to your project
 	
 The concept is you create the table, passing the JSON feed and then specifying a template function to build the rows for the table, specifying the field to use.
 
+Example JSON string
+
+	var data = '[{"title":"hello","subtitle":"there"},{"title":"hello2","subtitle":"there2"}]';
+
 So:-
 
 	var mytable = table.create(data, function(controls) {

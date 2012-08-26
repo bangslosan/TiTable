@@ -3,6 +3,8 @@ TiTable
 
 Conceptual module for Titanium to make it easier to populate a tableview from a JSON feed.
 
+Works in iOS, Android, Web
+
 Example:-
 
 Add the module to your project

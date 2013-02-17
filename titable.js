@@ -11,19 +11,19 @@ exports.create = function(items, template) {
 
         // create a new row
         var row = Ti.UI.createTableViewRow({
-            height : 50
+            height : 'auto'
         });
 
         // call the template callback passing the JSON record
         var controls = []; 
         
-        controls = template(items[i]);
-
-        // add the controls to the row
-        controls.forEach(function(control){
-            row.add(control);
-        });               
-
+        var e = {};
+        
+        e.item = items[i];
+        e.row = row;
+        
+        controls = template(e);
+       
         // add the row to the rows array
         rows.push(row);
     }

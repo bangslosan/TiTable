@@ -11,7 +11,7 @@ Add the module to your project
 
 	var table = require("titable");
 	
-The concept is you create the table, passing the JSON feed and then specifying a template function to build the rows for the table, specifying the field to use.
+The concept is you create the table, passing the JSON feed and then specifying a template function to build the rows for the table, then return the controls as an array.
 
 Example JSON string
 
@@ -19,31 +19,25 @@ Example JSON string
 
 So:-
 
-	var mytable = table.create(data, function(controls) {
+	var mytable = table.create(data, function(item) {
 
 		var title = Ti.UI.createLabel({
-			field : "title",
+			text : item['title'],
 			left : 10,
 			top: 5
 		});
 
 		var subTitle = Ti.UI.createLabel({
-			field : "subtitle",
+			text : item['subtitle'],
 			left : 10,
 			top :25
 			
 		});
-
-		controls.row.addEventListener('click', function(e) {
-			alert("You clicked the row! " + e.source);
-		});
-
-		controls.push(title);
-		controls.push(subTitle);
-
+		
+		return [title,subtitle];
+		
 	});
 
-The callback parameter *controls* has two propertes, *row* and *table* allowing you to attach event listeners etc.
 
 WORK IN PROGRESS!
 

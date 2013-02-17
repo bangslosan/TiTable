@@ -1,10 +1,4 @@
-// creates a new table, pass the JSON data template function
-// that generates the controls.
-
-exports.create = function(data, template) {
-
-    // parse the JSON
-    var items = JSON.parse(data);
+exports.create = function(items, template) {
 
     // create a tableview
     var table = Ti.UI.createTableView();

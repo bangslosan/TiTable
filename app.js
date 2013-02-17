@@ -7,7 +7,7 @@ var table = require("TiTable/titable");
 var data = '[{"title":"J blogs","subtitle":"Author"},{"title":"T Smith","subtitle":"Director"}]';
 
 // create a new table, pass through the feed
-var mytable = table.create(data, function(item) {
+var mytable = table.create(JSON.parse(data), function(item) {
 
    // first label
 	var title = Ti.UI.createLabel({

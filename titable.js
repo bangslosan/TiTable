@@ -3,47 +3,39 @@
 
 exports.create = function(data, template) {
 
-	// parse the JSON
-	var items = JSON.parse(data);
+    // parse the JSON
+    var items = JSON.parse(data);
 
-	// create a tableview
-	var table = Ti.UI.createTableView();
+    // create a tableview
+    var table = Ti.UI.createTableView();
 
-	// init the rows
-	var rows = [];
+    // init the rows
+    var rows = [];
 
-	// let's loop through the JSON
-	for (var i = 0; i < items.length; i++) {
+    // let's loop through the JSON
+    for (var i = 0; i < items.length; i++) {
 
-		// create a new row
-		var row = Ti.UI.createTableViewRow({
-			height : 50
-		});
+        // create a new row
+        var row = Ti.UI.createTableViewRow({
+            height : 50
+        });
 
-		// init a controls array for the row
-		var controls = [];
-		
-		// append some pointers to the current row and table
-		controls.row = row;
-		controls.table = table;
-		
-		// call the template
-		template(controls);
-		
-		// let's go through the controls and match 'field' to the JSON value
-		for (var c = 0; c < controls.length; c++) {
+        // call the template callback passing the JSON record
+        var controls = []; 
+        
+        controls = template(items[i]);
 
-			controls[c].text = items[i][controls[c].field];
+        // add the controls to the row
+        controls.forEach(function(control){
+            row.add(control);
+        });               
 
-			row.add(controls[c]);
+        // add the row to the rows array
+        rows.push(row);
+    }
 
-		}
-	
-		rows.push(row);
-	}
-	
-	// populate the table
-	table.setData(rows);
+    // populate the table
+    table.setData(rows);
 
-	return table;
+    return table;
 }

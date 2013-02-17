@@ -4,30 +4,26 @@
 var table = require("TiTable/titable");
 
 // demo JSON data
-var data = '[{"title":"hello","subtitle":"there"},{"title":"hello2","subtitle":"there2"}]';
+var data = '[{"title":"J blogs","subtitle":"Author"},{"title":"T Smith","subtitle":"Director"}]';
 
 // create a new table, pass through the feed
-var mytable = table.create(data, function(controls) {
+var mytable = table.create(data, function(item) {
 
-	// first label
+   // first label
 	var title = Ti.UI.createLabel({
-		field : "title",
+	    text : item['title'],		
 		left : 10,
 		top : 5
 	});
 
 	// second label
 	var subTitle = Ti.UI.createLabel({
-		field : "subtitle",
+		text : item['subtitle'],    
 		left : 10,
 		top : 25
-
 	});
 
-	// push the labels intro the control array
-	controls.push(title);
-	controls.push(subTitle);
-
+	return [title,subTitle];
 });
 
 // create a window

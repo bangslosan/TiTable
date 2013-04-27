@@ -15,15 +15,20 @@ exports.create = function(items, template) {
         });
 
         // call the template callback passing the JSON record
-        var controls = []; 
-        
+        var controls = [];
+
         var e = {};
-        
+
         e.item = items[i];
         e.row = row;
-        
+
         controls = template(e);
-       
+
+        // add the controls to the row
+        controls.forEach(function(control) {
+            row.add(control);
+        });
+
         // add the row to the rows array
         rows.push(row);
     }
